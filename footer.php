@@ -1,4 +1,4 @@
-        <div id="footer" class="site-footer">
+        <div id="footer" class="site-footer row">
             <div id="copyright" class="col-6">
                 <?php
                 if ( function_exists( 'the_theme_setting' ) )
