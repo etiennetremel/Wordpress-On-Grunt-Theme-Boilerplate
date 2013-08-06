@@ -8,30 +8,20 @@ module.exports = function(grunt) {
     // JSHint configuration
     jshint: {
       options: {
-        "bitwise":  true,
-        "browser":  true,
-        "curly":    true,
-        "eqeqeq":   true,
-        "eqnull":   true,
-        "es5":      true,
-        "esnext":   true,
-        "immed":    true,
-        "jquery":   true,
-        "latedef":  true,
-        "newcap":   true,
-        "noarg":    true,
-        "node":     true,
-        "strict":   false,
-        "trailing": true,
-        "undef":    true,
-        "indent":   2,
-        "globals": {
-          "jQuery": true,
-          "alert":  true
-        }
+        "validthis": true,
+        "laxcomma" : true,
+        "laxbreak" : true,
+        "browser"  : true,
+        "eqeqeq"   : false,
+        "eqnull"   : true,
+        "debug"    : true,
+        "devel"    : true,
+        "curly"    : false,
+        "boss"     : true,
+        "expr"     : true,
+        "asi"      : true
       },
       all: [
-        'Gruntfile.js',
         '<%= assets_folder %>/javascripts/source/*.js'
       ]
     },
@@ -54,10 +44,10 @@ module.exports = function(grunt) {
             '<%= assets_folder %>/javascripts/vendor/bootstrap/collapse.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/dropdown.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/modal.js',
+            '<%= assets_folder %>/javascripts/vendor/bootstrap/tooltip.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/popover.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/scrollspy.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/tab.js',
-            '<%= assets_folder %>/javascripts/vendor/bootstrap/tooltip.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/transition.js'
           ],
           '<%= assets_folder %>/javascripts/script.min.js': [
@@ -109,7 +99,7 @@ module.exports = function(grunt) {
     // Watch for changes
     watch: {
       options: {
-        livereload: true,
+        livereload: true
       },
       js: {
         files: [
