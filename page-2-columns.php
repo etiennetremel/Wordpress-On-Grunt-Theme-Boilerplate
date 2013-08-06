@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 
 <div id="main" class="site-main row">
-    <div id="primary" class="content-area span12" role="main">
+    <div id="primary" class="content-area col-12" role="main">
        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="page-header">
@@ -15,10 +15,10 @@
                 <div class="page-wrapper">
                     <div class="page-content">
                         <div class="row-fluid">
-                            <div class="span6 column-1">
+                            <div class="col-6 column-1">
                                 <?php the_content('<p>Continue reading…</p>'); ?>
                             </div>
-                            <div class="span6 column-2">
+                            <div class="col-6 column-2">
                                 Second column, add content using a plugin, for exemple: Advanced Custom Fields (<a href="http://www.advancedcustomfields.com" target="_blank">advancedcustomfields.com</a>)
                             </div>
                         </div>

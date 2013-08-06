@@ -35,10 +35,10 @@
 <body lang="en" <?php body_class(); ?>>
     <div id="site" class="container">
         <div id="header" class="site-header row">
-        	<div id="logo" class="span3">
+        	<div id="logo" class="col-3">
         		<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" class="home-link"><img src="<?php bloginfo('template_url'); ?>/assets/images/apple-touch-icon.png" alt="<?php bloginfo('name'); ?>" /></a>
             </div>
-            <nav id="main-menu" class="span9">
+            <nav id="main-menu" class="col-9">
                 <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' =>'menu' ) ); ?>
             </nav>
         </div>

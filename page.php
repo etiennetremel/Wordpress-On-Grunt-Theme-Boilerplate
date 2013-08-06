@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div id="main" class="site-main row">
-    <div id="primary" class="content-area span12" role="main">
+    <div id="primary" class="content-area col-12" role="main">
        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="page-header">

@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 
 <div id="main" class="site-main row">
-    <div id="primary" class="blog-area span8" role="main">
+    <div id="primary" class="blog-area col-8" role="main">
     <?php if ( have_posts() ) : ?>
         <?php if ( is_home() || is_archive() ): ?>
             <h1>Blog</h1>
