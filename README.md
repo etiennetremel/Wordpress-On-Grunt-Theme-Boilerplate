@@ -42,3 +42,4 @@ For a better experience, you may install the free LiveReload plugin. It auto-ref
 * Icons Font: [Fontello](http://fontello.com)
 * [Normalize (CSS)](https://github.com/necolas/normalize.css)
 * [Twitter Bootstrap framework](http://twitter.github.io/bootstrap) is used
+* Heavy theme features can be inspired from this repository [Wordpress Themes Plugins](https://github.com/etiennetremel/Wordpress-Themes-Plugin)
