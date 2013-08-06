@@ -1,0 +1,55 @@
+// Blog
+// -------------------------
+
+.blog, .author {
+	.article {
+		margin-bottom: 1em;
+		.entry-meta, .entry-utility {
+			color: @gray;
+			font-size: 0.8em;
+			font-style: italic;
+			a {
+				color:lighten(@gray, 15%);
+				&:hover {
+					color:@gray;
+				}
+			}
+		}
+	}
+
+	// Navigation
+	.navigation {
+		background:#ddd;
+		padding:1% 2%;
+		display:inline-block;
+		width:96%;
+		font-size: 0.8em;
+	}
+
+	// Multiple entry (Author posts)
+	.posts {
+		margin-top:3em;
+		.entry {
+			margin-bottom:2em;
+			font-size: 0.8em;
+			.entry-footer {
+				text-align: right;
+				a {
+					color:lighten(@gray, 15%);
+					font-size: 0.8em;
+					font-style: italic;
+					&:hover {
+						color:@gray;
+					}
+				}
+			}
+		}
+	}
+
+	// Author
+	.author-avatar {
+		float:left;
+		margin-right: 1em;
+		margin-bottom: 1em;
+	}
+}
