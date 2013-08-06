@@ -93,7 +93,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= assets_folder %>/images/',
           src: '**/*',
-          dest: '<%= .assets_folder %>/images/'
+          dest: '<%= assets_folder %>/images/'
         }]
       }
     },
@@ -117,6 +117,9 @@ module.exports = function(grunt) {
         ],
         tasks: ['jshint', 'uglify']
       },
+      imagemin: {
+        files: ['<%= assets_folder %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+      },
       less: {
         files: [
           '<%= assets_folder %>/stylesheets/main.less',
@@ -135,6 +138,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   // Get multiline comments from file and prepend them into each paths
   grunt.registerTask('banner', 'Add banner to file.', function() {
@@ -159,5 +163,5 @@ module.exports = function(grunt) {
   });
 
   // Register Task
-  grunt.registerTask('default', ['jshint', 'uglify', 'less', 'banner', 'watch']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'less', 'imagemin', 'banner', 'watch']);
 };
