@@ -3,7 +3,7 @@
 /**
  * CUSTOM FORM CLASS
  * Author: Etienne Tremel
- * Date: 10/05/2013
+ * Updated: 22/08/2013
  * Description: Generate form with field
  * Usage:
  *   $settings = array(
@@ -13,13 +13,13 @@
  *       'form_method'       => 'POST',
  *       'fields'            => array(
  *           array(
- *               'type'              => '', //section, fieldset, text, submit
+ *               'type'              => '', // Section, fieldset, text, submit
  *               'name'              => '',
  *               'label'             => '',
  *               'default_value'     => '',
  *               'description'       => '',
- *               'attributes'              => '', //array of additional attributes Key = attribute name and Value = attribute value
- *               'options'           => ''  //for select field only, array of options with array( array( 'label' => 'My label', 'value' => 'value' ) )
+ *               'attributes'        => '', // Array of additional attributes Key = attribute name and Value = attribute value
+ *               'options'           => ''  // For select field only, array of options with array( array( 'label' => 'My label', 'value' => 'value' ) )
  *           )
  *       );
  *   );
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Custom_Form' ) ) {
                 $attributes     = isset( $field['attributes'] ) ? $field['attributes'] : array();
                 $options        = isset( $field['options'] ) ? $field['options'] : array();
 
-                $attr = "";
+                $attr = '';
                 if ( $attributes ) {
                     foreach ( $attributes as $attr_name => $value ) {
                         $attr .= $attr_name . '="' . $value . '" ';
@@ -166,10 +166,25 @@ if ( ! class_exists( 'Custom_Form' ) ) {
                                     $this->after_field();
                         break;
                     case "image":
+                        $attr = $image_src = '';
+                        if ( isset( $attributes['src'] ) ) {
+                            $image_src = $attributes['src'];
+                            unset( $attributes['src'] );
+                        }
+                        if ( $attributes ) {
+                            if ( isset( $attributes['src'] ) ) {
+                                $image_src = $attributes['src'];
+                                unset( $attributes['src'] );
+                            }
+                            foreach ( $attributes as $attr_name => $value ) {
+                                $attr .= $attr_name . '="' . $value . '" ';
+                            }
+                        }
                         $output =   $this->before_field( $name ) .
                                     $this->get_label( $name, $label ) .
                                     '<span class="image-wrapper">' .
-                                    '   <span class="image"><img src="' . $default_value . '" /></span>' .
+                                    '   <span class="image"><img src="' . $image_src . '" /></span>' .
+                                    '   <input type="hidden" value="' . $default_value . '" name="' . $name . '" id="' . $name . '" ' . $attr . ' />' .
                                     '   <button class="button select-image">Select Image</button>' .
                                     '</span>' .
                                     $this->get_description( $description ) .
@@ -212,17 +227,17 @@ if ( ! class_exists( 'Custom_Form' ) ) {
                                     $this->after_field();
                         break;
                     case "select":
-                        $default_value = "";
+                        $option_fields = "";
 
                         foreach ( $options as $option ) {
                             $selected = ( $option['value'] == $default_value ) ? 'selected="selected"' : '';
-                            $default_value .= '<option value="' . $option['value'] . '" ' . $selected . '>' . $option['label'] . '</option>';
+                            $option_fields .= '<option value="' . $option['value'] . '" ' . $selected . '>' . $option['label'] . '</option>';
                         }
 
                         $output =   $this->before_field( $name ) .
                                     $this->get_label( $name, $label ) .
                                     '<select name="' . $name . '" id="' . $name . '" ' . $attr . ' >' .
-                                        $default_value .
+                                        $option_fields .
                                     '</select>' .
                                     $this->get_description( $description ) .
                                     $this->after_field();
