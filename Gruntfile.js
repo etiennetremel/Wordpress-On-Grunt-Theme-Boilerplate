@@ -37,6 +37,7 @@ module.exports = function(grunt) {
           '<%= assets_folder %>/javascripts/vendor.min.js': [
             // Define Plugins you want to use here
             //'<%= assets_folder %>/javascripts/vendor/retina.js',
+            '<%= assets_folder %>/javascripts/vendor/spin.min.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/affix.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/alert.js',
             '<%= assets_folder %>/javascripts/vendor/bootstrap/button.js',
@@ -52,6 +53,7 @@ module.exports = function(grunt) {
           ],
           '<%= assets_folder %>/javascripts/script.min.js': [
             // Define source files you want to use here
+            '<%= assets_folder %>/javascripts/source/ajax.js',
             '<%= assets_folder %>/javascripts/source/script.js'
           ]
         }
