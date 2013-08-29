@@ -93,7 +93,7 @@ module.exports = function(grunt) {
     // Add template information to style.css
     banner: {
       options: {
-        dest: ['style.css'],
+        dest: 'style.css',
         fetchfrom: '<%= less.dist.src %>'
       }
     },
