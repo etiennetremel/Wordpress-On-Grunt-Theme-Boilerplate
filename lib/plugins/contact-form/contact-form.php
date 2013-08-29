@@ -492,7 +492,8 @@ if ( ! class_exists( 'Contact_Form' ) ) {
                         'subject'  => $subject,
                         'tags'     => array(
                             'title'     => $subject,
-                            'content'   => $message
+                            'content'   => $message,
+                            'website'   => get_bloginfo( 'url' )
                     ) ) );
                 }
 
