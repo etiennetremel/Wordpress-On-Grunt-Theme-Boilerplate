@@ -110,16 +110,21 @@ if ( ! class_exists( 'Theme_Setting' ) ) {
                         <?php wp_nonce_field( plugin_basename( __FILE__ ), $this->name . '_nonce' ); ?>
 
                         <?php
-                        //Get options from DB
+                        // get options from DB
                         $settings = get_option( $this->name );
 
                         $theme_options_form = new Custom_Form();
 
-                        //If data in DB, overwrite default value of fields in the form:
+                        // if data in DB, overwrite default value of fields in the form:
                         if ( $settings ) {
                             foreach( $theme_options as &$field ) {
-                                if( isset( $field['name'] ) && isset( $settings[ $field['name'] ] ) )
+                                if( isset( $field['name'] ) && isset( $settings[ $field['name'] ] ) ) {
                                     $field['default_value'] = stripslashes( $settings[ $field['name'] ] );
+
+                                    // if image, set image thumbnail
+                                    if( $field['type'] == 'image' && is_numeric( $settings[ $field['name'] ] ) )
+                                        $field['attributes']['src'] = wp_get_attachment_thumb_url( $settings[ $field['name'] ] );
+                                }
                             }
                         }
 
