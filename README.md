@@ -59,7 +59,7 @@ You can add your own plugin by creating a new folder and a new file with exactly
 
 Only use lowercase and dash separated words.
 Then find below an example of the structure for `testimonials.php`:
-```
+```php
 <?php
 // Class name should be Proper_Case
 if ( ! class_exists( 'Testimonials' ) ) {
@@ -148,3 +148,5 @@ if ( ! class_exists( 'Testimonials' ) ) {
 }
 ?>
 ```
+
+That's it!
