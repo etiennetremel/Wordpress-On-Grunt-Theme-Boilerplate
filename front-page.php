@@ -2,7 +2,7 @@
 
 <div id="main" class="site-main row">
     <div id="primary" class="content-area col-12" role="main">
-       <?php while (have_posts()) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
             <div class="page page-front-page" id="post-<?php the_ID(); ?>">
                 <div class="page-header">
                     <h1 class="page-title"><?php the_title() ?></h1>
