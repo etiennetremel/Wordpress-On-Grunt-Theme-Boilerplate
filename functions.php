@@ -68,10 +68,10 @@ function load_theme_script() {
     );
 
     // Add URL + Nonce for Ajax requests
-    wp_localize_script( 'theme-script', 'ajax_var', array(
-        'url'   => admin_url( 'admin-ajax.php' ),
-        'nonce' => wp_create_nonce( 'ajax-nonce' )
-    ));
+    // wp_localize_script( 'theme-script', 'ajax_var', array(
+    //     'url'   => admin_url( 'admin-ajax.php' ),
+    //     'nonce' => wp_create_nonce( 'ajax-nonce' )
+    // ));
 }
 add_action('wp_enqueue_scripts', 'load_theme_script');
 
@@ -79,16 +79,16 @@ add_action('wp_enqueue_scripts', 'load_theme_script');
 /**
  * Remove admin tabs we don't want to appear
  */
-/*add_action( 'admin_menu', 'remove_admin_menus' );
-function remove_admin_menus() {
-    if ( ! function_exists('remove_menu_page') )
-        return;
+// function remove_admin_menus() {
+//     if ( ! function_exists('remove_menu_page') )
+//         return;
 
-    //Post Menu
-    remove_menu_page('edit.php');
-    //Comments Menu
-    remove_menu_page('edit-comments.php');
-}*/
+//     //Post Menu
+//     remove_menu_page('edit.php');
+//     //Comments Menu
+//     remove_menu_page('edit-comments.php');
+// }
+// add_action( 'admin_menu', 'remove_admin_menus' );
 
 
 /**
